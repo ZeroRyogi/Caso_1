@@ -57,11 +57,16 @@ public class Message {
 	}
 
 	public void neutralizeParent() throws InterruptedException {
-		parent.wait();
+		synchronized (parent) {
+			parent.wait();
+		}
+		
 	}
 	
 	public void reviveParent() {
-		parent.notify();
+		synchronized (parent) {
+			parent.notify();
+		}
 	}
 	
 	public Client getParent() {

@@ -22,7 +22,7 @@ public class Client extends Thread {
 	@Override
 	public void run() {
 		int i = 0;
-		while(i < 300) {
+		while(true) {
 			try {
 				Message m = new Message(0, Sources.CLIENT, "" + Math.random(), this);
 				publishMessage(m);

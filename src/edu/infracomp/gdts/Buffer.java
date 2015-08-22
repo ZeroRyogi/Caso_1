@@ -29,6 +29,7 @@ public class Buffer {
 		semaphoreClients.pPasivo(m.getParent());
 		if (queue.size() <= limit ) {
 			agrego = queue.add(m);
+			System.out.println("[INFO] add: " + m.getMsg());
 		}
 		semaphoreClients.vPasivo(m.getParent());
 
@@ -50,6 +51,7 @@ public class Buffer {
 		if (queue.size() <= limit && !queue.isEmpty() ) {
 			m = queue.remove();
 			m.reviveParent();
+			System.out.println("[INFO] removed: " + m);
 			notifyAll();
 		}
 		semaphoreServers.vActivo(s);

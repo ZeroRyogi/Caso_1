@@ -19,7 +19,7 @@ public class Server extends Thread {
 	@Override
 	public void run() {
 		int i = 0;
-		while(i < 300) {
+		while(true) {
 			try {
 				retrieveMessage();
 			} catch (InterruptedException e) {
